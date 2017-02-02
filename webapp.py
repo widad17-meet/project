@@ -15,31 +15,46 @@ def mainPage():
 	return render_template('main.html', allSessions = allSessions)
 
 
-@app.route('/newCustomer', methods = ['GET','POST'])
-def newCustomer():
+@app.route('/signup', methods = ['GET','POST'])
+def signup():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
-        address = request.form['address']
+        gender = request.form['gender']
         if name == “” or email == “” or password == “”:
             flash("Your form is missing arguments")
-            return redirect(url_for('newCustomer'))
-        if session.query(Customer).filter_by(email = email).first() is not None:
+            return redirect(url_for('signup'))
+        if session.query(Person).filter_by(email = email).first() is not None:
             flash("A user with this email address already exists")
             return redirect(url_for('newCustomer'))
-        customer = Customer(name = name, email=email, address = address)
-        customer.hash_password(password)
-        session.add(customer)
-        shoppingCart = ShoppingCart(customer=customer)
-        session.add(shoppingCart)
+        user = Person(name = name, email=email, gender = gender)
+        Person.hash_password(password)
+        session.add(user)
         session.commit()
         flash("User Created Successfully!")
-        return redirect(url_for('inventory'))
+        return redirect(url_for('mainpage'))
     else:
-        return render_template('newCustomer.html')
+        return render_template('signup.html')
 
+@app.route('/logout')
+def logout():
+	session.pop('user_id', None)
+	return redirect(url_for('mainpage'))
 
+@app.route('/SignIn', methods=['GET', 'POST'])
+def SignIn():
+	if (request.method == 'POST'):
+		email = request.form['email']
+		password = request.form['password']
+		user = dbsession.query(Person).filter_by(email = email).first()
+		if user == None or user.password != password:
+			return render_template('sign_in.html', error = True)
+		else:
+			session['person_id'] = person.id
+			return render_template('mainpage.html')
+	else :
+		return render_template('sign_in.html')
 
 if __name__ == "__main__":
 	app.run(debug=True)

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<h1> Sign in </h1>
+ 
+<div class= 'flash'>
+	{%for message in get_flashed_messages()%}
+		<ul>
+			<li><strong>{{message }}</strong></li>
+		</ul>
+	{% end for %}
+</div>
+<form action="{{url_for ('signup')}}">
