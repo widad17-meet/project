@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<h1> Sign in </h1>
+<h1> Sign up </h1>
  
 <div class= 'flash'>
 	{%for message in get_flashed_messages()%}
@@ -9,4 +9,15 @@
 		</ul>
 	{% end for %}
 </div>
-<form action="{{url_for ('signup')}}">
+<form action="{{url_for ('signup')}}" method="post">
+	name:<br>
+	<input type="text" name="name"><br>
+	gender:<br>
+	<input type="text" name="gender"><br>
+	email :<br>
+	<input type="text" name="email"><br>
+	password :<br>
+	<input type="password" name="password">
+	 <input type="submit" value="Create Account" >
+</form>
+</html>

@@ -1,8 +1,10 @@
 from database_setup import *
 
-from flask import Flask ,render_template, redirect
+from flask import Flask, url_for, flash, redirect, request
+from flask import session as login_session
 
 app = Flask(__name__)
+app.secret_key = "MY_SUPER_SECRET_KEY"
 
 
 Base.metadata.bind = engine
@@ -37,24 +39,41 @@ def signup():
     else:
         return render_template('signup.html')
 
-@app.route('/logout')
-def logout():
-	session.pop('user_id', None)
-	return redirect(url_for('mainpage'))
+
+
+def verify_passsword(email,password):
+    person= session.query(Person).filter_by(email=email).first()
+    if not person or not person.verify_passsword(password):
+        return False
+    return True
 
 @app.route('/SignIn', methods=['GET', 'POST'])
 def SignIn():
-	if (request.method == 'POST'):
+	if request.method == 'GET':
+        return render_template('singnin.html')
+    elif request.method== 'POST':
 		email = request.form['email']
 		password = request.form['password']
-		user = dbsession.query(Person).filter_by(email = email).first()
-		if user == None or user.password != password:
-			return render_template('sign_in.html', error = True)
-		else:
-			session['person_id'] = person.id
-			return render_template('mainpage.html')
-	else :
-		return render_template('sign_in.html')
+        if email == “” or password == “”:
+            flash('missing arguments')
+            return redirect(url_for('login'))
+        if verify_passsword(email,password):
+            person= session.query(Person).filter_by(email=email).one()
+            flash('login successful, welcome %s'%person.name)
+            login_session['name']= person.name
+            login_session['email']= person.email
+            login_session['id']= person.id
+            return redirect(url_for('mainpage'))
+        else:
+            flash('Incorrect username/password combination')
+            return redirect(url_for('login'))
+
+@app.route("/intructor/<int:instructor_id>")
+def intructor(intructor_id):
+    instructor= session.query(instructor).filter_by(id=instructor_id).one()
+    return render_template('instructor.html', instructor=instructor)
+ `
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
