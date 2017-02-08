@@ -1,5 +1,7 @@
+<!DOCTYPE html>
+<html>
 <h1> Log In Here </h1>
-<form action="{{url_for('login'}}" method="post"> 
+<form> 
 	email: <br>
 	<input type="text" name="email"><br>
 	password:<br>
@@ -7,4 +9,6 @@
 		<input type="submit" value="Login">
 </form>
 
-<p> Don't have an account? Create one <a href={{url_for('signup')}}>Here</a>
+<p> Don't have an account? Create one <a href={{url_for('signup')}} >Here</a>
+</p>
+</html>

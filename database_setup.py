@@ -27,28 +27,37 @@ class Person(Base):
 class Session(Base):
 	__tablename__ = 'sessions'
 	id = Column(Integer, primary_key=True)
-	instructor = Column(String)
 	description = Column(String)
 	time = Column(String)
 	location = Column(String)
 	person_id = Column(Integer, ForeignKey('person.id'))
 	person = relationship("Person", back_populates="sessions")
-	intructor_id = Column(Integer, ForeignKey('intrucors.id'))
-	instructor = relationship("Instructors", back_populates="sessions")
+	intructor_id = Column(Integer, ForeignKey('instructors.id'))
+	instructors = relationship("Instructors", back_populates="sessions")
 
 
 
-class Intructors(Base):
-	__tablename__ = 'intructors'
+class Instructors(Base):
+	__tablename__ = 'instructors'
 	id = Column(Integer, primary_key=True)
 	instrument=Column(String)
 	description = Column(String)
 	sessions= relationship("Session", back_populates="instructors")
 
-instructor=Intructors(instrument="piano", description="i teach piano fml fml fml fml ")
 
 
 engine = create_engine('sqlite:///musicTeachers.db')
-
-
 Base.metadata.create_all(engine)
+DBSession = sessionmaker(bind=engine, autoflush=False)
+session = DBSession()
+
+
+if __name__ == '__main__':
+	engine = create_engine('sqlite:///musicTeachers.db')
+	Base.metadata.create_all(engine)
+	DBSession = sessionmaker(bind=engine, autoflush=False)
+	session = DBSession()
+
+	instructor=Instructors(instrument="piano", description="i teach piano fml fml fml fml ")
+	session.add(instructor)
+	session.commit()
