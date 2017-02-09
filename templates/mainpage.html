@@ -5,5 +5,8 @@
 <html>
 <h1> Sign in </h1>
 
-<div class ='flash'>
+{% for message in get_flashed_messages() %}
+
+	<div class=flash>{{ message }}</div>
+{% endfor %}
  

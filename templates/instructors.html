@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+{% if inst==[]%}
+<p> There are currently no instructors available </p>
+{%else%}
+<div class="allinst">
+	{% for i in inst %}
+	<a href="{{url_for('instructor', instructor_id=i.id)}}">
+		<p>{{i.name}}</p>
+		<p>{{i.description}}</p>
+	</a>
+	{% endfor %}
+</div>
+{% endif %}
+
+	
+</div>

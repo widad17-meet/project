@@ -15,12 +15,10 @@ class Person(Base):
 	#birthday = Column(Date)
 	gender = Column(String)
 	email= Column(String)
-	password_hash= Column(String)
+	password_hash= Column(String(255))
 	sessions= relationship("Session", back_populates="person")
-
 	def hash_password(self, password):
 		self.password_hash = pwd_context.encrypt(password)
-
 	def verify_password(self, password):
 		return pwd_context.verify(password, self.password_hash)
 
@@ -40,6 +38,7 @@ class Session(Base):
 class Instructors(Base):
 	__tablename__ = 'instructors'
 	id = Column(Integer, primary_key=True)
+	name= Column(String)
 	instrument=Column(String)
 	description = Column(String)
 	sessions= relationship("Session", back_populates="instructors")
@@ -58,6 +57,6 @@ if __name__ == '__main__':
 	DBSession = sessionmaker(bind=engine, autoflush=False)
 	session = DBSession()
 
-	instructor=Instructors(instrument="piano", description="i teach piano fml fml fml fml ")
+	instructor=Instructors(name="nada", instrument="piano", description="i teach piano fml fml fml fml ")
 	session.add(instructor)
 	session.commit()

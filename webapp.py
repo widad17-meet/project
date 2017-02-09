@@ -1,7 +1,6 @@
-from database_setup import *
-
 from flask import Flask, url_for, flash, redirect, request, render_template
 from flask import session as login_session
+from database_setup import *
 
 app = Flask(__name__)
 app.secret_key = "MY_SUPER_SECRET_KEY"
@@ -41,9 +40,9 @@ def signup():
 
 
 
-def verify_passsword(email,password):
+def verify_password(email,password):
     person= session.query(Person).filter_by(email=email).first()
-    if not person or not person.verify_passsword(password):
+    if not person or not person.verify_password(password):
         return False
     return True
 
@@ -56,21 +55,30 @@ def SignIn():
 		password = request.form['password']
 		if email == "" or password == "":
 			flash('missing arguments')
-			return redirect(url_for('login'))
+			return redirect(url_for('SignIn'))
 		user=session.query(Person).filter_by(email=email).first()
-		if user.password==password:
+        if user is None:
+            flash("You are not registered.")
+            return redirect(url_for('signup'))
+        elif verify_password(email, password):
 			person= session.query(Person).filter_by(email=email).one()
 			flash('login successful, welcome %s'%person.name)
 			login_session['name']= person.name
 			login_session['email']= person.email
 			return redirect(url_for('mainpage'))
-		else:
+        else:
 			flash('Incorrect username/password combination')
-			return redirect(url_for('login'))
+			return redirect(url_for('mainpage'))
+
+@app.route('/instructors')
+def instructors():
+    inst=session.query(Instructors).all()
+    print(inst)
+    return render_template("instructors.html", inst=inst)
 
 @app.route("/instructor/<int:instructor_id>")
-def instructor(instructor_id):
-    instructor= session.query(instructor).filter_by(id=instructor_id).one()
+def instructor(instructors_id):
+    instructor= session.query(Instructors).filter_by(id=instructors_id).one()
     return render_template('instructor.html', instructor=instructor)
  
 
