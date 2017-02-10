@@ -1,8 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+<style>
+
+p {
+   text-align: center;
+   font-size: 25px;
+   font-family: "Times New Roman", Times, serif;
+
+}
+h1 {
+   text-align: center;
+   margin-top: 150px;
+   font-size: 35px;
+   font-family: "Times New Roman", Times, serif;
+}
+form {
+	margin-left: 537px;
+	font-size: 23px;
+	font-family: "Times New Roman", Times, serif;
+}
+body{
+background-image: url("wallpaper.jpg");
+	
+}
+</style>
 </head>
+<body>
 <h1> Log In Here </h1>
 <form action="{{url_for('SignIn')}}" method="Post"> 
 	email: <br>
@@ -12,6 +36,7 @@
 		<input type="submit" value="Login">
 </form>
 
-<p> Don't have an account? Create one <a href={{url_for('signup')}} >Here</a>
+<p>  <a href={{url_for('signup')}} >Sign Up</a>
 </p>
+</body>
 </html>
