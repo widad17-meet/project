@@ -1,12 +1,39 @@
-h1 {
-	text-align: center;
+.bg {
+	background-image: url("wallpaper.jpg");
+	background-size: 100%;
+
 	
 }
-p {
+#mainpage {
 	text-align: center;
+}
+.font {
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+	font-size: 24px;
+}
+.navbar {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    left: 175px;
+    font-size: 20px;
+   
+}
+.innavbar {
+	display: block;
+    width: 60px;
+    text-decoration: none;
+    display: inline;
+    color: white;
+}
+.innavbar a{
+	color: black;
+	text-decoration: none;
 	
 }
-form {
-	text-align: center;
-	
+
+.innavbar a:hover {
+  	
+    text-decoration:underline;
 }

@@ -25,8 +25,8 @@ class Person(Base):
 class Session(Base):
 	__tablename__ = 'sessions'
 	id = Column(Integer, primary_key=True)
-	description = Column(String)
 	time = Column(String)
+	Date= Column(String)
 	location = Column(String)
 	person_id = Column(Integer, ForeignKey('person.id'))
 	person = relationship("Person", back_populates="sessions")
@@ -60,3 +60,6 @@ if __name__ == '__main__':
 	instructor=Instructors(name="nada", instrument="piano", description="i teach piano fml fml fml fml ")
 	session.add(instructor)
 	session.commit()
+	lesson=Session(time="1:30", Date="13/4/2017", location="nazareth")
+	session.add(lesson)
+	session.commit

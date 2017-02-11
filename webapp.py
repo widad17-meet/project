@@ -77,9 +77,9 @@ def instructors():
     return render_template("instructors.html", inst=inst)
 
 @app.route("/instructor/<int:instructor_id>")
-def instructor(instructors_id):
-    instructor= session.query(Instructors).filter_by(id=instructors_id).one()
-    return render_template('instructor.html', instructor=instructor)
+def instructor(instructor_id):
+    instructor= session.query(Instructors).filter_by(id=instructor_id).one()
+    return render_template('instructors.html', instructor=instructor)
  
 
 

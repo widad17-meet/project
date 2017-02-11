@@ -3,10 +3,20 @@
 
 <!DOCTYPE html>
 <html>
-<h1> Sign in </h1>
+<head> <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg">
+<body class="bg">
+ <ul class="navbar">
+  <li class="innavbar" style="color: white;"><a href="{{url_for('mainpage')}}">Home<span class="sr-only"></span></a></li>
+  <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
+  <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
+</ul>
+<h1 id=mainpage> Sign in </h1>
 
 {% for message in get_flashed_messages() %}
 
 	<div class=flash>{{ message }}</div>
 {% endfor %}
- 
+
+</body></html>

@@ -4,15 +4,13 @@
 {% if inst==[]%}
 <p> There are currently no instructors available </p>
 {%else%}
-<div class="allinst">
+<div class="instructors">
 	{% for i in inst %}
 	<a href="{{url_for('instructor', instructor_id=i.id)}}">
 		<p>{{i.name}}</p>
 		<p>{{i.description}}</p>
+		<p> {{i.sessions}}</p>
 	</a>
 	{% endfor %}
 </div>
 {% endif %}
-
-	
-</div>
