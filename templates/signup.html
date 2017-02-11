@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head> <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"> </head>
+<body class="bg">
+<ul class="navbar">
+  <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
+  <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
+  <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
+  <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
+</ul> 
 <h1 style="text-align: center; font-size: 35px;" "> Sign up </h1>
  
 <div class= 'flash'>
@@ -22,4 +29,5 @@
 	<input type="radio" name="gender" value="female">Female<br><br>
 	 <input type="submit" value="Create Account" >
 </form>
+</body>
 </html>

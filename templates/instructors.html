@@ -1,16 +1,29 @@
 
 <!DOCTYPE html>
 <html>
+<head><link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="bg">
+ <ul class="navbar">
+  <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
+  <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
+  <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
+  <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
+</ul> 
 {% if inst==[]%}
 <p> There are currently no instructors available </p>
 {%else%}
 <div class="instructors">
+<img src="https://beautyhealthtips.in/wp-content/uploads/2015/03/Women-grooming-tips-for-interview-1.jpg" style="width:270px;height:230px;">
 	{% for i in inst %}
-	<a href="{{url_for('instructor', instructor_id=i.id)}}">
-		<p>{{i.name}}</p>
-		<p>{{i.description}}</p>
-		<p> {{i.sessions}}</p>
+	<a href="{{url_for('instructors', instructor_id=i.id)}}">
+		<p class="inst" ">{{i.name}}</p>
+		<p class="inst">{{i.age}}</p>
+		<p class="inst">{{i.place}}</p>
+		<p class="inst">{{i.description}}</p>
+
 	</a>
 	{% endfor %}
 </div>
 {% endif %}
+</body>
+</html>

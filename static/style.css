@@ -37,3 +37,17 @@
   	
     text-decoration:underline;
 }
+
+.inst{
+	text-decoration:none ;
+	color: black;
+
+}
+
+.instructors{ max-width: 900px;
+  padding: 30px 38px 30px;
+  margin: 0 auto;
+  background-color:gray;
+  opacity:0.6;
+  border-color: transparent;
+}

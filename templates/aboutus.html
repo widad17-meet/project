@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<head>
+
+	<title></title>
+</head>
+<body class="bg">
+ <ul class="navbar">
+  <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
+  <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
+  <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
+  <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
+</ul> 
+
+</body>
+</html>

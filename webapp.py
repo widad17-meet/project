@@ -10,11 +10,13 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine, autoflush=False)
 session = DBSession()
 
-@app.route('/')
-def mainpage():
-	allSessions = session.query(Session).all()
-	return render_template('mainpage.html', allSessions = allSessions)
-
+#@app.route('/')
+#def mainpage():
+	#allSessions = session.query(Session).all()
+	#return render_template('mainpage.html', allSessions = allSessions)
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
 
 @app.route('/signup', methods = ['GET','POST'])
 def signup():
@@ -46,7 +48,7 @@ def verify_password(email,password):
         return False
     return True
 
-@app.route('/SignIn', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def SignIn():
 	if request.method == 'GET':
 		return render_template('login.html')
@@ -55,7 +57,7 @@ def SignIn():
 		password = request.form['password']
 		if email == "" or password == "":
 			flash('missing arguments')
-			return redirect(url_for('SignIn'))
+			return redirect(url_for('/'))
 		user=session.query(Person).filter_by(email=email).first()
         if user is None:
             flash("You are not registered.")
@@ -65,10 +67,10 @@ def SignIn():
 			flash('login successful, welcome %s'%person.name)
 			login_session['name']= person.name
 			login_session['email']= person.email
-			return redirect(url_for('mainpage'))
+			return redirect(url_for('instructors'))
         else:
 			flash('Incorrect username/password combination')
-			return redirect(url_for('mainpage'))
+			return redirect(url_for('instructors'))
 
 @app.route('/instructors')
 def instructors():
@@ -76,11 +78,23 @@ def instructors():
     print(inst)
     return render_template("instructors.html", inst=inst)
 
-@app.route("/instructor/<int:instructor_id>")
-def instructor(instructor_id):
-    instructor= session.query(Instructors).filter_by(id=instructor_id).one()
-    return render_template('instructors.html', instructor=instructor)
+#@app.route("/instructor/<int:instructors_id>")
+#def instructor(instructors_id):
+    #instructor= session.query(Instructors).filter_by(id=instructors_id).one()
+    #return render_template('instructor.html', instructor=instructor)
  
+@app.route('/logout')
+def logout():
+    if 'id' not in login_session:
+        flash("You must be logged in order to log out")
+        return redirect(url_for('SignIn'))
+    del login_session['name']
+    del login_session['email']
+    del login_session['id']
+    flash("Logged Out Seccessfully")
+    return redirect(url_for('mainpage'))
+
+
 
 
 if __name__ == "__main__":

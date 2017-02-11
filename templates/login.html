@@ -26,9 +26,10 @@ form {
 </head>
 <body class="bg">
  <ul class="navbar">
-  <li class="innavbar" style="color: white;"><a href="{{url_for('mainpage')}}">Home<span class="sr-only"></span></a></li>
+  <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
   <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
+  <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
 </ul> 
 <h1> Log In Here </h1>
 <form action="{{url_for('SignIn')}}" method="Post"> 

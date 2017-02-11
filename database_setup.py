@@ -41,6 +41,9 @@ class Instructors(Base):
 	name= Column(String)
 	instrument=Column(String)
 	description = Column(String)
+	photo= Column(String)
+	age= Column(String)
+	place= Column(String)
 	sessions= relationship("Session", back_populates="instructors")
 
 
@@ -57,9 +60,10 @@ if __name__ == '__main__':
 	DBSession = sessionmaker(bind=engine, autoflush=False)
 	session = DBSession()
 
-	instructor=Instructors(name="nada", instrument="piano", description="i teach piano fml fml fml fml ")
+	instructor=Instructors(name="nada", instrument="piano", age="26", place="nazareth", photo="https://www.google.co.il/search?q=piano+teacher&client=ubuntu&hs=lHc&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiWh__nsIjSAhWDVhQKHawFBNoQ_AUICCgB&biw=1301&bih=673#q=woman&tbm=isch&tbs=rimg:CTpC2iYqxYsTIji8z-GvT0603iNaCbFRlzZ9jg1uN0LeMB74tY4AbG01EqHP8z7eSH2LmXRhouA-F6sIbWEuc3MjJCoSCbzP4a9PTrTeEetumcMIP9K-KhIJI1oJsVGXNn0RAxlfxgzUsBIqEgmODW43Qt4wHhG-J-8vjLpviSoSCfi1jgBsbTUSEfQRMRFt7t92KhIJoc_1zPt5IfYsRlcfOsErvxPgqEgmZdGGi4D4XqxEXc2b2bV4i5CoSCQhtYS5zcyMkEQiXAF_12_1QjE&imgrc=OkLaJirFixNAsM:" ,
+	description="Music is my passion, since a very young age and especailly piano. I've been learning piano for 10 years now and teaching for 2. Why i love teaching piano and music in general is because it is only through music that i see the world being a better place ")
 	session.add(instructor)
 	session.commit()
 	lesson=Session(time="1:30", Date="13/4/2017", location="nazareth")
 	session.add(lesson)
-	session.commit
+	session.commit()
