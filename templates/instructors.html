@@ -9,17 +9,24 @@
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
   <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
 </ul> 
+<div class= 'flash'>
+	{%for message in get_flashed_messages()%}
+		<ul>
+			<li><strong>{{message }}</strong></li>
+		</ul>
+	{% endfor %}
+</div>
 {% if inst==[]%}
 <p> There are currently no instructors available </p>
 {%else%}
 <div class="instructors">
 <img src="https://beautyhealthtips.in/wp-content/uploads/2015/03/Women-grooming-tips-for-interview-1.jpg" style="width:270px;height:230px;">
 	{% for i in inst %}
-	<a href="{{url_for('instructors', instructor_id=i.id)}}">
+	<a href={{url_for('instructor', instructors_id = i.id)}}>
 		<p class="inst" ">{{i.name}}</p>
 		<p class="inst">{{i.age}}</p>
 		<p class="inst">{{i.place}}</p>
-		<p class="inst">{{i.description}}</p>
+	
 
 	</a>
 	{% endfor %}

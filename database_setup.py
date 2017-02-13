@@ -64,6 +64,8 @@ if __name__ == '__main__':
 	description="Music is my passion, since a very young age and especailly piano. I've been learning piano for 10 years now and teaching for 2. Why i love teaching piano and music in general is because it is only through music that i see the world being a better place ")
 	session.add(instructor)
 	session.commit()
-	lesson=Session(time="1:30", Date="13/4/2017", location="nazareth")
+	lesson=Session(time="1:30", Date="13/4/2017", location="nazareth", intructor_id=1)
 	session.add(lesson)
 	session.commit()
+
+

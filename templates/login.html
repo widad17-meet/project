@@ -24,6 +24,7 @@ form {
 
 </style>
 </head>
+
 <body class="bg">
  <ul class="navbar">
   <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
@@ -31,6 +32,13 @@ form {
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
   <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
 </ul> 
+<div class= 'flash'>
+	{%for message in get_flashed_messages()%}
+		<ul>
+			<li><strong>{{message }}</strong></li>
+		</ul>
+	{% endfor %}
+</div>
 <h1> Log In Here </h1>
 <form action="{{url_for('SignIn')}}" method="Post"> 
 	email: <br>

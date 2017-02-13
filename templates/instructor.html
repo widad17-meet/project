@@ -1,8 +1,27 @@
 
-<h1> {{instructor.name}} </h1>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<div class= 'flash'>
+	{%for message in get_flashed_messages()%}
+		<ul>
+			<li><strong>{{message }}</strong></li>
+		</ul>
+	{% endfor %}
+</div>
+<body class="bg" >
 
+<h1> {{instructor.name}} </h1>
+<p> <img src={{instructor.photo}}></p>
 <p> {{instructor.description}}</p>
 <p> {{instructor.name}}</p>
-<!-- <form action="{{url_for('', instructors_id=instructor.id)}}" method='post'>
-	<input type="submit" value="book a session">	
-</form> -->
+{% for lesson in lessons %}
+<p>lesson 1:    date:{{lesson.Date}} time:{{ lesson.time}} location:{{lesson.location}} </p>
+<form action="{{url_for('booklesson', session1=lesson.id)}}" method="post"><input type="submit" value="Book lesson">
+	
+</form>
+{%endfor%}
+</body>
+</html>
