@@ -24,8 +24,9 @@
 	{% for i in inst %}
 	<a href={{url_for('instructor', instructors_id = i.id)}}>
 		<p class="inst" ">{{i.name}}</p>
-		<p class="inst">{{i.age}}</p>
+		<p class="inst">{{i.age}} years old</p>
 		<p class="inst">{{i.place}}</p>
+		<br><br><br>
 	
 
 	</a>

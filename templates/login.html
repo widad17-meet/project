@@ -39,16 +39,22 @@ form {
 		</ul>
 	{% endfor %}
 </div>
-<h1> Log In Here </h1>
-<form action="{{url_for('SignIn')}}" method="Post"> 
-	email: <br>
-	<input type="text" name="email"><br>
-	password:<br>
-	<input type="password" name="password">
-		<input type="submit" value="Login">
-</form>
 
-<p>  <a href={{url_for('signup')}} >Sign Up</a>
-</p>
+
+<form action="{{url_for('SignIn')}}" method="post" name="Login_Form" class="form-signin" id="bla">       
+     
+        
+        <input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>          
+       <br>
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button> 
+        <br>
+      <center>
+        <a href="{{url_for('signup')}}" class="btn btn-info" role="button">Sign Up</a>
+        <a href="{{url_for('mainpage')}}" class="btn btn-info" role="button">Cancel</a>    
+      </center>  
+    </form>     
+  </div>
+
 </body>
 </html>

@@ -8,7 +8,7 @@
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
   <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
 </ul> 
-<h1 style="text-align: center; font-size: 35px;" "> Sign up </h1>
+<h1 style="text-align: center; font-size: 35px; position:fixed; bottom:500px; right:585px" "> Sign up </h1>
  
 <div class= 'flash'>
 	{%for message in get_flashed_messages()%}
@@ -17,17 +17,29 @@
 		</ul>
 	{% endfor %}
 </div>
-<form class="font" action="{{url_for ('signup')}}" method="post">
-	name:<br>
-	<input type="text" name="name"><br>
-	email :<br>
-	<input type="text" name="email"><br>
-	password :<br>
-	<input type="password" name="password"> <br>
-	gender:<br>
-	<input type="radio" name="gender" value="male">Male
-	<input type="radio" name="gender" value="female">Female<br><br>
-	 <input type="submit" value="Create Account" >
+
+	    <form action="{{url_for('signup')}}" class="form-signup" method="POST" name="signup_Form"  id="blabla"  >       
+        
+        
+        <input type="text" class="form-control" name="name" placeholder="Name" required="" autofocus="" />
+        <input type="text" class="form-control" name="email" placeholder="Username" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password" required="" autofocus=""/>          
+               <br>
+
+<label class="radio-inline"><input type="radio" name="gender" value="Female"><font style="color:white;font-size:120%;">Female</label>
+<label class="radio-inline"><input type="radio" name="gender" value="Male"><font style="color:white;">Male</label>
+
+<br>
+<br>
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Sign Up" type="Submit">Sign Up</button>  
+    </form>     
+    <br>
+
+
+<a href="{{url_for('mainpage')}}" class="btn btn-info" role="button">Cancel</a>     
+</div>
+
+</center>
 </form>
 </body>
 </html>

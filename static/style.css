@@ -33,9 +33,47 @@
     border: 5px;
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 0;    
+}
+.k{
+  border-spacing: 25px;
+  margin: 5px;
+  padding: 7px;
+  border-color: white;
 
-     
+}
+.form{
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+.s{
+  border-spacing: 25px;
+  margin: 5px;
+  padding: 7px;
+  border-color: white;
+}
+.m{
+  border-spacing: 10px;
+  margin: 5px;
+  padding: 3.5px;
+  border-color: white;
+}
+.su{
+  position: fixed;
+  bottom: 155px;
+  right: 480px;
+  width: 300px;
+}
+
+.f {
+
+  position: fixed;
+  bottom: 220px;
+  right: 450px;
+  width: 300px;
+
 }
 .innavbar {
 	display: block;
@@ -85,4 +123,42 @@
   background-color:gray;
   opacity:0.6;
   border-color: transparent;
+}
+.form-signin {
+  max-width: 420px;
+  padding: 30px 30px 66px;
+  margin: 0 auto;
+  border: 3px ; 
+  position: fixed;
+  bottom: 150px;
+  right: 350px; 
+
+}
+.form-signup {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  border: 3px; 
+  position: fixed;
+  bottom: 150px;
+  right: 350px; 
+ 
+  }
+
+.form-signin-heading {
+  color: gray;
+  text-align:center;
+  margin-bottom: 30px;
+}
+.form-signup-heading {
+  color:gray;
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
 }
