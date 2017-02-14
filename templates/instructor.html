@@ -4,6 +4,60 @@
 <head>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
+<style>
+	<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+ <ul class="navbar">
+  <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
+  <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
+  <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
+  <li class="innlast"><a href="{{url_for('aboutus')}}">About Us</a></li>
+</ul> 
 <div class= 'flash'>
 	{%for message in get_flashed_messages()%}
 		<ul>
@@ -16,12 +70,17 @@
 <h1> {{instructor.name}} </h1>
 <p> <img src={{instructor.photo}}></p>
 <p> {{instructor.description}}</p>
-<p> {{instructor.name}}</p>
-{% for lesson in lessons %}
-<p>lesson 1:    date:{{lesson.Date}} time:{{ lesson.time}} location:{{lesson.location}} </p>
-<form action="{{url_for('booklesson', session1=lesson.id)}}" method="post"><input type="submit" value="Book lesson">
+
 	
 </form>
-{%endfor%}
+<div class="dropdown">
+  <button class="dropbtn">Lessons</button>
+  <div class="dropdown-content">
+  	{% for lesson in lessons %}
+	<p>   date:{{lesson.Date}} time:{{lesson.time}}  </p>
+	<form action="{{url_for('booklesson', session1=lesson.id)}}" method="post"><input type="submit" value="Book lesson">
+	{%endfor%}
+  </div>
+</div>
 </body>
 </html>

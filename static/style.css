@@ -1,7 +1,20 @@
 .bg {
 	background-image: url("wallpaper.jpg");
 	background-size: 100%;
+}
+.h3 {
+  display: inline-block;
+  padding: 10px;
+  background: #B9121B;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 	
 }
 #mainpage {
@@ -16,9 +29,13 @@
 	list-style-type: none;
     margin: 0;
     padding: 0;
-    left: 175px;
     font-size: 20px;
-   
+    border: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+     
 }
 .innavbar {
 	display: block;
@@ -26,11 +43,25 @@
     text-decoration: none;
     display: inline;
     color: white;
+    border-right: 1px solid #F5F5F5;
+  }
+.innlast {
+    border-right: none;
+    display: block;
+    width: 60px;
+    text-decoration: none;
+    display: inline;
+    color: white;
+    border-right: none;
 }
 .innavbar a{
-	color: black;
+	color:   #F5F5F5;
 	text-decoration: none;
 	
+}
+.innlast a {
+  color:   #F5F5F5;
+  text-decoration: none;
 }
 
 .innavbar a:hover {
@@ -38,6 +69,10 @@
     text-decoration:underline;
 }
 
+.innlast a:hover {
+    
+    text-decoration:underline;
+}
 .inst{
 	text-decoration:none ;
 	color: black;

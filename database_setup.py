@@ -67,5 +67,10 @@ if __name__ == '__main__':
 	lesson=Session(time="1:30", Date="13/4/2017", location="nazareth", intructor_id=1)
 	session.add(lesson)
 	session.commit()
+	lesson=Session(time="3:30", Date="15/5/2017", location="nazareth", intructor_id=1)
+	session.add(lesson)
+	session.commit()
+
+
 
 
