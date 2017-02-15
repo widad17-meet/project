@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html><link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="{{ url_for('static', filename='script.js')}}"></script>
 <head>
 
 	<title></title>
 </head>
 <body class="bg">
+<div class="nav">
  <ul class="navbar">
   <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
   <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
   <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
-</ul> 
+</ul> </div>
 
 </body>
 </html>

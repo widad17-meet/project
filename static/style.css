@@ -33,7 +33,16 @@
     border: 5px;
     width: 100%;
     position: absolute;
-    top: 0;    
+    top: 0;
+    position: fixed;
+    top: 0;
+    width: 100%    
+}
+.nav {
+transition-duration: 1s;
+    position: fixed;
+    top: 0;
+    width: 100%  
 }
 .k{
   border-spacing: 25px;
@@ -81,7 +90,7 @@
     text-decoration: none;
     display: inline;
     color: white;
-    border-right: 1px solid #F5F5F5;
+    ;
   }
 .innlast {
     border-right: none;
@@ -103,9 +112,7 @@
 }
 
 .innavbar a:hover {
-  	
-    text-decoration:underline;
-}
+  	}
 
 .innlast a:hover {
     
@@ -126,12 +133,13 @@
 }
 .form-signin {
   max-width: 420px;
+  width: 300px;
   padding: 30px 30px 66px;
   margin: 0 auto;
-  border: 3px ; 
+  border: 4px ; 
   position: fixed;
-  bottom: 150px;
-  right: 350px; 
+  bottom: 90px;
+  right: 500px; 
 
 }
 .form-signup {
@@ -140,8 +148,8 @@
   margin: 0 auto;
   border: 3px; 
   position: fixed;
-  bottom: 150px;
-  right: 350px; 
+  bottom: 70px;
+  right: 500px; 
  
   }
 
@@ -161,4 +169,8 @@
   font-size: 16px;
   height: auto;
   padding: 10px;
+}
+.flaash{
+  text-align:center;
+  color: red;
 }

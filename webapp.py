@@ -10,10 +10,10 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine, autoflush=False)
 session = DBSession()
 
-@app.route('/')
-def mainpage():
-	allSessions = session.query(Session).all()
-	return render_template('mainpage.html', allSessions = allSessions)
+#@app.route('/')
+#def mainpage():
+	#allSessions = session.query(Session).all()
+	#return render_template('mainpage.html', allSessions = allSessions)
 
 @app.route('/aboutus')
 def aboutus():
@@ -49,7 +49,7 @@ def verify_password(email,password):
         return False
     return True
 
-@app.route('/SignIn', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def SignIn():
 	if request.method == 'GET':
 		return render_template('login.html')
@@ -111,8 +111,9 @@ def booklesson(session1):
             if 'id' in  login_session:
                 lesson.person_id = login_session['id']
                 session.commit()
-                return redirect(url_for('instructors'))
                 flash("lesson booked successfully!")
+                return redirect(url_for('instructors'))
+                
             else:
                 flash("You must be logged in order to book a lesson")
                 return redirect(url_for("SignIn"))

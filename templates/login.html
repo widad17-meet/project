@@ -2,6 +2,12 @@
 <html>
 <head>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="{{ url_for('static', filename='script.js')}}"></script>
+
+
 <style>
 
 p {
@@ -26,19 +32,20 @@ form {
 </head>
 
 <body class="bg">
+<div class="nav">
  <ul class="navbar">
   <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
   <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
-  <li class="innlast"><a href="{{url_for('aboutus')}}">About Us</a></li>
+  <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
 </ul> 
-<div class= 'flash'>
+</div>
+<div class= 'flash' id="flash">
 	{%for message in get_flashed_messages()%}
 		<ul>
 			<li><strong>{{message }}</strong></li>
 		</ul>
 	{% endfor %}
-</div>
 
 
 <form action="{{url_for('SignIn')}}" method="post" name="Login_Form" class="form-signin" id="bla">       
@@ -51,7 +58,7 @@ form {
         <br>
       <center>
         <a href="{{url_for('signup')}}" class="btn btn-info" role="button">Sign Up</a>
-        <a href="{{url_for('mainpage')}}" class="btn btn-info" role="button">Cancel</a>    
+        <a href="{{url_for('SignIn')}}" class="btn btn-info" role="button">Cancel</a>    
       </center>  
     </form>     
   </div>

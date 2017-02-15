@@ -3,6 +3,11 @@
 <html>
 <head>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="{{ url_for('static', filename='script.js')}}"></script>
+
 </head>
 <style>
 	<style>
@@ -52,13 +57,15 @@
     background-color: #3e8e41;
 }
 </style>
+<div class="nav">
  <ul class="navbar">
   <li class="innavbar" style="color: white;"><a href="{{url_for('SignIn')}}">Home<span class="sr-only"></span></a></li>
   <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
-  <li class="innlast"><a href="{{url_for('aboutus')}}">About Us</a></li>
-</ul> 
-<div class= 'flash'>
+  <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
+</ul> </div>
+
+<div class= 'flash' id="flash">
 	{%for message in get_flashed_messages()%}
 		<ul>
 			<li><strong>{{message }}</strong></li>
@@ -67,9 +74,9 @@
 </div>
 <body class="bg" >
 
-<h1> {{instructor.name}} </h1>
+<h1 style="color:black;"> {{instructor.name}} </h1>
 <p> <img src={{instructor.photo}}></p>
-<p> {{instructor.description}}</p>
+<p style="color:black;"> {{instructor.description}}</p>
 
 	
 </form>
