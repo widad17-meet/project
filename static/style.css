@@ -121,15 +121,18 @@ transition-duration: 1s;
 .inst{
 	text-decoration:none ;
 	color: black;
+    font-size: 20px;
 
 }
 
 .instructors{ max-width: 900px;
   padding: 30px 38px 30px;
-  margin: 0 auto;
+  margin: auto;
   background-color:gray;
   opacity:0.6;
   border-color: transparent;
+  position: relative;
+  top: 30px;
 }
 .form-signin {
   max-width: 420px;
