@@ -16,6 +16,7 @@
   <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
   <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
+  <li class="innavbar"><a href="{{url_for('logout')}}">Sign Out</a></li>
 </ul> 
 </div>
 <div class= 'flash'>
@@ -29,11 +30,11 @@
 <p> There are currently no instructors available </p>
 {%else%}
 <div class="instructors">
-<img src="https://beautyhealthtips.in/wp-content/uploads/2015/03/Women-grooming-tips-for-interview-1.jpg" style="width:270px;height:230px;">
-	{% for i in inst %}
-	<p style="border-style:solid;">
-	
 
+	{% for i in inst %}
+	<div style="border-style:solid;">
+	
+		<img src="{{i.photo}}", width="170">
 		<p class="inst" ">{{i.name}}</p>
 		<p class="inst">{{i.instrument}} teacher</p>
 		<p class="inst">{{i.age}} years old</p>
@@ -41,7 +42,7 @@
 		<a href={{url_for('instructor', instructors_id = i.id)}} class="btn btn-info" role="button"> See More </a>   
 
 		<br><br><br>
-	</p>
+	</div>
 
 	</a>
 	{% endfor %}

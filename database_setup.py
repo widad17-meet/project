@@ -60,7 +60,7 @@ if __name__ == '__main__':
 	DBSession = sessionmaker(bind=engine, autoflush=False)
 	session = DBSession()
 
-	instructor=Instructors(name="Nada", instrument="Piano", age="26", place="Nazareth", photo="https://www.google.co.il/search?q=piano+teacher&client=ubuntu&hs=lHc&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiWh__nsIjSAhWDVhQKHawFBNoQ_AUICCgB&biw=1301&bih=673#q=woman&tbm=isch&tbs=rimg:CTpC2iYqxYsTIji8z-GvT0603iNaCbFRlzZ9jg1uN0LeMB74tY4AbG01EqHP8z7eSH2LmXRhouA-F6sIbWEuc3MjJCoSCbzP4a9PTrTeEetumcMIP9K-KhIJI1oJsVGXNn0RAxlfxgzUsBIqEgmODW43Qt4wHhG-J-8vjLpviSoSCfi1jgBsbTUSEfQRMRFt7t92KhIJoc_1zPt5IfYsRlcfOsErvxPgqEgmZdGGi4D4XqxEXc2b2bV4i5CoSCQhtYS5zcyMkEQiXAF_12_1QjE&imgrc=OkLaJirFixNAsM:" ,
+	instructor=Instructors(name="Nada", instrument="Piano", age="26", place="Nazareth", photo="http://media.istockphoto.com/photos/businesswoman-portrait-on-white-picture-id517496982?k=6&m=517496982&s=170667a&w=0&h=6PK3M4vD6dZbZ7054zSQTLVuhk85qRVFS_4XhPbH-nI=",
 	description="Music is my passion, since a very young age and especailly piano. I've been learning piano for 10 years now and teaching for 2. Why i love teaching piano and music in general is because it is only through music that i see the world being a better place.")
 	session.add(instructor)
 	session.commit()

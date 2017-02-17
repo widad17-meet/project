@@ -63,6 +63,7 @@
   <li class="innavbar"><a href="{{url_for('instructors')}}">Instructors</a></li>
   <li class="innavbar"><a href="{{url_for('signup')}}">Sign Up</a></li>
   <li class="innavbar"><a href="{{url_for('aboutus')}}">About Us</a></li>
+  <li class="innavbar"><a href="{{url_for('logout')}}">Sign Out</a></li>
 </ul> </div>
 
 <div class= 'flash' id="flash">
@@ -73,21 +74,23 @@
 	{% endfor %}
 </div>
 <body class="bg" >
+<div class="instructors">
 
-<h1 style="color:black;"> {{instructor.name}} </h1>
-<p> <img src={{instructor.photo}}></p>
-<p style="color:black;"> {{instructor.description}}</p>
+<h1 style="color:black;   "> {{instructor.name}} </h1>
+<p > <img src={{instructor.photo }} width="200"></p>
+<p style="color:black; font-size:20px;"> {{instructor.description}}</p>
 
-	
-</form>
+
+
 <div class="dropdown">
   <button class="dropbtn">Lessons</button>
   <div class="dropdown-content">
   	{% for lesson in lessons %}
 	<p>   date:{{lesson.Date}} time:{{lesson.time}}  </p>
-	<form action="{{url_for('booklesson', session1=lesson.id)}}" method="post"><input type="submit" value="Book lesson">
+	<form action="{{url_for('booklesson', session1=lesson.id)}}" method="post"><input type="submit" value="Book lesson" >
 	{%endfor%}
-  </div>
+</div> 
+</div>
 </div>
 </body>
 </html>

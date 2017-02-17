@@ -177,3 +177,23 @@ transition-duration: 1s;
   text-align:center;
   color: red;
 }
+.dropdown{
+ padding: 10px 38px 30px;
+  margin: auto;
+  opacity:0.6;
+  border-color: transparent;
+  
+}
+.dropdown-content{
+  background-color: white;
+}
+.innavbar-side {
+  display: block;
+    width: 60px;
+    text-decoration: none;
+    display: inline;
+    color: white;
+    position: relative;
+    left: 1px;
+    ;
+  }

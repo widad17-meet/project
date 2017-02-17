@@ -100,24 +100,32 @@ def logout():
 @app.route('/book/<int:session1>', methods=['POST', 'GET'])
 def booklesson(session1):
     if login_session is None:
-        flash("You must be logged in order to book a lesson")
+        
         return redirect(url_for('SignIn'))
+        flash("You must be logged in order to book a lesson")
     else:
         lesson= session.query(Session).filter_by(id=session1).first()
         if lesson.person_id is not None :
-            flash("The lesson is already booked!")
+            
             return redirect(url_for('instructors'))
+            flash("The lesson is already booked!")
         else:
             if 'id' in  login_session:
                 lesson.person_id = login_session['id']
                 session.commit()
-                flash("lesson booked successfully!")
+                
                 return redirect(url_for('instructors'))
+                flash("lesson booked successfully!")
                 
             else:
-                flash("You must be logged in order to book a lesson")
+                
                 return redirect(url_for("SignIn"))
+                flash("You must be logged in order to book a lesson")
 
+#@app.route('/logout')
+#def logout():
+    #session.pop('user_id', None)
+    #return redirect(url_for('SignIn'))
 
 
 if __name__ == "__main__":
